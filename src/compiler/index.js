@@ -1,5 +1,5 @@
-import {parseHTML} from "./parser";
-import {generate} from "./generate";
+import { parseHTML } from "./parser";
+import { generate } from "./generate";
 
 /**
  * 语法分析生成render函数
@@ -7,7 +7,7 @@ import {generate} from "./generate";
  * new Function + with
  * @param {模版} template 
  */
-export function compileToFunctions(template){
+export function compileToFunctions(template) {
     let root = parseHTML(template);
     let code = generate(root);
     let render = `with(this){return ${code}}`;

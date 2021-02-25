@@ -14,6 +14,7 @@ export function renderMixin(Vue){
         const vm = this;
         let render = vm.$options.render; // 解析出来的render方法
 
+        // render函数执行，触发数据的get方法
         let vnode = render.call(vm);
 
         return vnode;

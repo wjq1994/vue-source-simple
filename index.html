@@ -1,31 +1,46 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
 </head>
+
 <body>
-    <div id="app">xxxxx {{a}} YYYYYY</div>
+    <div id="app">{{name}}</div>
     <script src="./dist/umd/vue.js"></script>
     <script>
         let vm = new Vue({
             el: "#app",
             data() {
                 return {
-                    a: 111
+                    arr: [[1, 2, 3, [222]]],
+                    name: '111'
+                }
+            },
+            watch: {
+                name(newValue, oldValue) {
+                    console.log(newValue, oldValue);
                 }
             }
         });
-        
+
         // 数据劫持 - 模版编译（ 语法分析ast -> render函数 -> 虚拟dom -> 真实dom ）
 
         // 响应式原理 每次更新属性 执行render函数 重新渲染
         // 
+        // setTimeout(() => {
+        //     vm.a = 222;
+        //     vm.a = 333;
+        //     vm.a = 444;
+        //     vm.a = 555;
+        // }, 1000);
         setTimeout(() => {
-            vm.a = 222;
+            vm.name = "666"
         }, 1000);
-        
+
     </script>
 </body>
+
 </html>
