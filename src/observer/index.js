@@ -66,7 +66,7 @@ function defineReactive(data, key, value) {
     let dep = new Dep();
     Object.defineProperty(data, key, {
         get() {
-            console.log("------get");
+            console.log("------get", data);
             if(Dep.target){ // 如果取值时有watcher
                 dep.depend(); // 让watcher保存dep，并且让dep 保存watcher
                 if (childOb) { // 

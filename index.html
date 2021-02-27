@@ -8,7 +8,7 @@
 </head>
 
 <body>
-    <div id="app">{{name}}</div>
+    <div id="app">{{fullName}}</div>
     <script src="./dist/umd/vue.js"></script>
     <script>
         let vm = new Vue({
@@ -16,12 +16,21 @@
             data() {
                 return {
                     arr: [[1, 2, 3, [222]]],
-                    name: '111'
+                    name: '111',
+                    firstName: "wang",
+                    lastName: "jia"
                 }
             },
             watch: {
                 name(newValue, oldValue) {
                     console.log(newValue, oldValue);
+                }
+            },
+            // fullName只有computed Watch，没有渲染watch
+            // firstName lastName只有computed Watch  需要给fullName里的firstName lastName添加渲染watch
+            computed: {
+                fullName(){
+                    return this.firstName + this.lastName;
                 }
             }
         });
@@ -37,7 +46,7 @@
         //     vm.a = 555;
         // }, 1000);
         setTimeout(() => {
-            vm.name = "666"
+            vm.lastName = "jiaer";
         }, 1000);
 
     </script>
