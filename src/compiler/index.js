@@ -9,7 +9,9 @@ import { generate } from "./generate";
  */
 export function compileToFunctions(template) {
     let root = parseHTML(template);
+    console.log("模版编译", root);
     let code = generate(root);
+    console.log("生成render函数", code);
     let render = `with(this){return ${code}}`;
     let renderFn = new Function(render);
     return renderFn

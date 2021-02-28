@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <div id="app">
+        <my-component></my-component>
+    </div>
+    <script src="./dist/umd/vue.js"></script>
+    <script>
+        Vue.component('my-component', {
+            template: '<button>1111点我</button>',
+        });
+        let vm = new Vue({
+            el: "#app",
+            components: {
+                'my-component': {
+                    template: '<button>点我</button>',
+                    beforeMount() {
+                        console.log("beforeMount", this);
+                    },
+                    mounted() {
+                        console.log("mounted", this);
+                    }
+                }
+            },
+            beforeMount() {
+                console.log("beforeMount", this);
+            },
+            mounted() {
+                console.log("mounted", this);
+            }
+        });
+    </script>
+</body>
+
+</html>

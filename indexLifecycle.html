@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <div id="app"><div></div</div>
+    <script src="./dist/umd/vue.js"></script>
+    <script>
+        Vue.mixin({
+            beforeCreate() {
+                console.log("beforeCreate1");
+            }
+        });
+        Vue.mixin({
+            beforeCreate() {
+                console.log("beforeCreate2");
+            }
+        });
+        let vm = new Vue({
+            el: "#app",
+            beforeCreate() {
+                console.log("beforeCreate3");
+            },
+            mounted() {
+                console.log("mounted");
+            }
+        });
+
+    </script>
+</body>
+
+</html>
