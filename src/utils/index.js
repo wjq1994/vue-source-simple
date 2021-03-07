@@ -96,5 +96,5 @@ function makeMap(str) {
  * 导出组件节点
  */
 export const isReservedTag = makeMap(
-    'a,div,img,image,text,span,input,p,button'
+    'a,div,img,image,text,span,input,p,button,li,ul'
 )
